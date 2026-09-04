@@ -4,12 +4,14 @@
  */
 package com.mycompany.trabajopractico3ejercicio2;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author sgort
  */
 public class Ejercicio2 extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Ejercicio2.class.getName());
 
     /**
@@ -33,13 +35,13 @@ public class Ejercicio2 extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
+        rbtx1 = new javax.swing.JRadioButton();
+        rbtx3 = new javax.swing.JRadioButton();
+        rbtx2 = new javax.swing.JRadioButton();
+        rbtx4 = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        txtBox = new javax.swing.JTextField();
+        btnConvert = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ejercicio 2 - de Celcius a Farenheit");
@@ -48,17 +50,17 @@ public class Ejercicio2 extends javax.swing.JFrame {
         jLabel1.setText("Conversor de Temperatura");
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("A Farenheit");
+        buttonGroup1.add(rbtx1);
+        rbtx1.setText("A Farenheit");
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("A Celcius");
+        buttonGroup1.add(rbtx3);
+        rbtx3.setText("A Celcius");
 
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setText("A Kelvin");
+        buttonGroup1.add(rbtx2);
+        rbtx2.setText("A Kelvin");
 
-        buttonGroup1.add(jRadioButton4);
-        jRadioButton4.setText("A Radianes");
+        buttonGroup1.add(rbtx4);
+        rbtx4.setText("A Radianes");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -67,12 +69,12 @@ public class Ejercicio2 extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton3))
+                    .addComponent(rbtx1)
+                    .addComponent(rbtx2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton4)
-                    .addComponent(jRadioButton2))
+                    .addComponent(rbtx4)
+                    .addComponent(rbtx3))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -80,23 +82,24 @@ public class Ejercicio2 extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(rbtx1)
+                    .addComponent(rbtx3))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton4))
+                    .addComponent(rbtx2)
+                    .addComponent(rbtx4))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Ingrese temperatura en Grados");
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtBox.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-aprobar-y-actualizar-48.png"))); // NOI18N
-        jButton1.setText("Convertir");
+        btnConvert.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnConvert.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-aprobar-y-actualizar-48.png"))); // NOI18N
+        btnConvert.setText("Convertir");
+        btnConvert.addActionListener(this::btnConvertActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -111,13 +114,13 @@ public class Ejercicio2 extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(109, 109, 109)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtBox, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(89, 89, 89)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(103, 103, 103)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnConvert, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -128,11 +131,11 @@ public class Ejercicio2 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtBox, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnConvert, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
         );
 
@@ -143,16 +146,15 @@ public class Ejercicio2 extends javax.swing.JFrame {
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(73, 73, 73)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -169,6 +171,31 @@ public class Ejercicio2 extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnConvertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConvertActionPerformed
+        // TODO add your handling code here:
+        double datoIngresado = Double.parseDouble(txtBox.getText());
+        double resultado = 0;
+
+        if (rbtx1.isSelected()) {
+            resultado = (datoIngresado * 9 / 5) + 32;
+            JOptionPane.showMessageDialog(null, "La temperatura en grados Farenheit es "  + resultado);
+            
+        } else if (rbtx3.isSelected()) {
+            resultado = (datoIngresado - 32) * 5 / 9;
+            JOptionPane.showMessageDialog(null, "La temperatura en grados Celcius es "  + resultado);
+
+        } else if (rbtx2.isSelected()) {
+            resultado = datoIngresado + 273.15;
+            JOptionPane.showMessageDialog(null, "La temperatura en grados Kelvin es "  + resultado);
+
+        } else if (rbtx4.isSelected()) {
+            resultado = Math.toRadians(datoIngresado);
+            JOptionPane.showMessageDialog(null, "La temperatura en Radianes es "  + resultado);
+        }
+      
+
+    }//GEN-LAST:event_btnConvertActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,17 +223,17 @@ public class Ejercicio2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConvert;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JRadioButton rbtx1;
+    private javax.swing.JRadioButton rbtx2;
+    private javax.swing.JRadioButton rbtx3;
+    private javax.swing.JRadioButton rbtx4;
+    private javax.swing.JTextField txtBox;
     // End of variables declaration//GEN-END:variables
 }
